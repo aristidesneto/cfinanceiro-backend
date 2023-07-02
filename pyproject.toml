@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "financial-control"
+version = "0.1.0"
+description = ""
+authors = ["Aristides Neto <aristidesbneto@gmail.com>"]
+readme = "README.md"
+packages = [{include = "financial_control"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+fastapi = "^0.99.0"
+uvicorn = "^0.22.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

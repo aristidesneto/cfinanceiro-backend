@@ -27,10 +27,10 @@ COPY --from=builder /tmp/requirements.txt ./requirements.txt
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir --upgrade -r requirements.txt
 
-COPY ./financial-control ./financial-control
+COPY ./financial_control ./financial_control
 
 RUN chown -R $USER:$USER /app
 
 USER $USER
 
-CMD ["uvicorn", "financial-control.main:app", "--host", "0.0.0.0", "--workers", "4", "--port", "8080", "--proxy-headers"]
+CMD ["uvicorn", "financial_control.main:app", "--host", "0.0.0.0", "--workers", "4", "--port", "8080", "--proxy-headers"]

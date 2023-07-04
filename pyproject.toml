@@ -11,6 +11,10 @@ python = "^3.11"
 requests = "^2.31.0"
 fastapi = "^0.99.0"
 uvicorn = "^0.22.0"
+mysql-connector-python = "^8.0.33"
+sqlalchemy = "^2.0.17"
+pymysql = "^1.1.0"
+alembic = "^1.11.1"
 
 
 [tool.poetry.group.dev.dependencies]

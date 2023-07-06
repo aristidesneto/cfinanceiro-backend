@@ -15,6 +15,7 @@ mysql-connector-python = "^8.0.33"
 sqlalchemy = "^2.0.17"
 pymysql = "^1.1.0"
 alembic = "^1.11.1"
+aiomysql = "^0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]

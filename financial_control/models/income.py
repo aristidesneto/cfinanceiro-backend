@@ -10,4 +10,3 @@ class Income(Base):
     user_id = Column(Integer)
     amount = Column(DECIMAL)
     month = Column(String)
-    created_at = Column(DateTime)

@@ -9,7 +9,6 @@ class IncomeService():
             session.add(Income(
                 user_id=1, # Pegar ID do usuário logado
                 amount=data.amount,
-                month=data.month,
-                created_at=datetime.now()
+                month=data.month
             ))
             await session.commit()

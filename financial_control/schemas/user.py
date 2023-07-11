@@ -7,4 +7,3 @@ class UserCreateSchema(BaseModel):
     name: str
     email: str
     password: str
-    created_at: Optional[datetime]

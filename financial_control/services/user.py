@@ -9,7 +9,6 @@ class UserService():
             session.add(User(
                 name=data.name,
                 email=data.email,
-                password=data.password,
-                created_at=datetime.now()
+                password=data.password
             ))
             await session.commit()

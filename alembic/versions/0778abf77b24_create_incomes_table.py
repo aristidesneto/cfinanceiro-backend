@@ -23,8 +23,8 @@ def upgrade() -> None:
         sa.Column('user_id', sa.Integer, sa.ForeignKey('users.id'), nullable=False),
         sa.Column('amount', sa.Double),
         sa.Column('month', sa.String(2)),
-        sa.Column('created_at', sa.DateTime),
-        sa.Column('updated_at', sa.DateTime),
+        sa.Column('created_at', sa.TIMESTAMP, server_default=sa.func.now()),
+        sa.Column('updated_at', sa.TIMESTAMP),
     )
 
 

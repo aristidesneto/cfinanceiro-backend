@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -10,4 +10,3 @@ class User(Base):
     name = Column(String)
     email = Column(String)
     password = Column(String)
-    created_at = Column(DateTime)

@@ -16,6 +16,7 @@ services:
       - MYSQL_DATABASE=financial_control
       - MYSQL_USER=python
       - MYSQL_PASSWORD=python
+      - TZ=America/Sao_Paulo
 
 volumes:
   financial_control_data:

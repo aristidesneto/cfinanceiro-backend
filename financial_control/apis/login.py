@@ -47,7 +47,6 @@ async def get_current_user(
     except JWTError:
         raise credentials_exception
     user = await get_user(email=username, db=db)
-    print(user.email)
     if user is None:
         raise credentials_exception
     return user

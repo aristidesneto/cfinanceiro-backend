@@ -1,15 +1,12 @@
-from os import getenv
-
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
- 
-user = getenv('DB_USERNAME', 'user')
-password = getenv('DB_PASSWORD', '')
-host = getenv('DB_HOST', '127.0.0.1')
-port = getenv('DB_PORT', 3306)
-database = getenv('DB_DATABASE', '')
 
-DATABASE_URL = f'mysql+aiomysql://{user}:{password}@{host}:{port}/{database}'
+from financial_control.core.config import settings
 
-engine = create_async_engine(DATABASE_URL)
-async_session = sessionmaker(engine, class_=AsyncSession)
+engine = create_async_engine(settings.DATABASE_URL)
+async_session = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
+
+async def get_database():
+    async with async_session() as session:
+        async with session.begin():
+            yield session

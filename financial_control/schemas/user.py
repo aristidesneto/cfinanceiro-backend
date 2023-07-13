@@ -7,3 +7,7 @@ class UserCreateSchema(BaseModel):
     name: str
     email: str
     password: str
+    
+class UserOutput(BaseModel):
+    name: str
+    email: str

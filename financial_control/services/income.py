@@ -1,4 +1,4 @@
-from financial_control.models.income import Income
+from financial_control.database.models.income import Income
 from financial_control.database.config import async_session
 
 from datetime import datetime

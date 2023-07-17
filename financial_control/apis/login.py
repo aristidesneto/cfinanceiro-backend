@@ -2,12 +2,13 @@ from sqlalchemy.orm import Session
 from jose import jwt
 from jose import JWTError
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, encoders
 from fastapi.security import OAuth2PasswordBearer
 from fastapi.security import OAuth2PasswordRequestForm
 
 from financial_control.core.config import settings
 from financial_control.schemas.token import Token
+from financial_control.schemas.user import UserOutput
 from financial_control.core.security import create_access_token, verify_password
 from financial_control.database.config import get_database
 from financial_control.services.user import get_user
@@ -22,10 +23,11 @@ async def login_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Sess
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
+            detail="Usuário ou senha incorretos",
         )
     access_token = create_access_token(data={"sub": user.email})
-    return {"access_token": access_token, "token_type": "bearer"}
+    user_decode = UserOutput(**encoders.jsonable_encoder(user)).model_dump()
+    return {"access_token": access_token, "token_type": "bearer", "user": user_decode}
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/token")
 

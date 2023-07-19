@@ -1,3 +1,4 @@
-import sqlalchemy.ext.declarative as dec
+from sqlalchemy.ext.declarative import declarative_base
 
-BaseModel = dec.declarative_base()
+
+BaseModel = declarative_base()
